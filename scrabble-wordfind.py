@@ -21,15 +21,31 @@ def load_words():
 ## Get letters from player
 def get_letters():
 	letters = []
-	letter = str(input('Enter your letters --> ')
+	letter = str(input('Enter your letters --> '))
 	## Only 7 tiles allowed in a hand
 	if len(letter) > 7:
 		print ('You entered too many letters.')
 		get_letters()
-	else:  
+	else:
 		for i in letter:
 			letters.append(i)
 	return letters
+
+def get_board_letter():
+	i = False
+	while i == False:
+		letter = str(input('Enter your board letter --> '))
+		if len(letter) > 1:
+			print ('You entered too many letters.')
+			i = False
+		else:
+			i = True
+
+	print ('ending loop')
+	return letter
+
+
+
 
 ## Check if letters are equal
 def check_letters(l1, l2):
@@ -152,6 +168,10 @@ def filter_words(wordlist, length, letters, dupes):
 def main():
 	wordlist = load_words()
 	letters = get_letters()
+	board_letter = get_board_letter()
+	print (board_letter)
+	if len(board_letter) != 0:
+		letters.append(board_letter)
 	print ('Your letters are -->  %s ' % (letters))
 	dupes = get_duplicate_in_letters(letters)
 	length = 2
@@ -169,3 +189,4 @@ def main():
 if __name__ == '__main__':
   main()
 
+## Account for tile that might be on the board
