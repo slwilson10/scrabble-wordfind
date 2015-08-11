@@ -176,7 +176,7 @@ def main():
 	dupes = get_duplicate_in_letters(letters)
 	length = 2
 	## Run loop for each possible length of words
-	while length <= 7:
+	while length <= 8:
 		final_wordlist = filter_words(wordlist, length, letters, dupes)
 		if len(final_wordlist) > 0:
 			print ('Words with length of: %d' % length)
